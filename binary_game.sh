@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source colors.sh
+
 score=0
 time=25
 running=true
@@ -42,10 +44,10 @@ while [[ $running == true ]]; do
 
     if [[ "$user_binary" == "$binary" ]]; then
         (( score += 1 ))
-        echo "Correct!"
+        echo "$(color green Correct!)"
     else
         (( score -= 1 ))
-        echo "Incorrect!"
+        echo "$(color red Incorrect!)"
     fi
 
     sleep 1
