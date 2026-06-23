@@ -3,9 +3,11 @@
 hour=$(TZ="America/Los_Angeles" date +%H)
 
 if (( hour < 12 )); then
-    echo "Good morning!"
-elif (( hour > 18 )); then
-    echo "Good evening!"
+    period="morning"
+elif (( hour >= 18 )); then
+    period="evening"
 else
-    echo "Good afternoon!"
+    period="afternoon"
 fi
+
+echo "$(hostname) says: \"Good $period, $(whoami)!\""
